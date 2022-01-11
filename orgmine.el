@@ -2953,6 +2953,7 @@ new entry will be inserted into the current position."
 	     (redmine-issues
 	      (if (not project)
 		  (error "no project property (project_id) exists")
+        (plist-put filters :limit t)
 		(message "retrieving issues with filter: %s" filters)
 		(apply 'elmine/get-project-issues project filters))))
 	(prog1 redmine-issues
